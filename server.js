@@ -13,7 +13,7 @@ const io=socketIO(server)
 app.use(express.static(path.join(__dirname,"src")))
 const PORT=process.env.PORT || 5005;
 
-
+//
 
 server.listen(PORT,()=>console.log("server is running "+PORT))
 let ran=lottoNum()
