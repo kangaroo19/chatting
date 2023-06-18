@@ -271,7 +271,7 @@ socket.on('rancard',(data)=>{//랜덤한값 서버로부터 받아옴
 })
 let cardall=''
 function setCards(){
-    cards=[
+    const cards=[
         'img/돼지.png','img/돼지.png',
         'img/드레이크.png','img/드레이크.png',
         'img/레이스.png','img/레이스.png',
