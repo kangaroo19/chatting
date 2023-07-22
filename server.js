@@ -10,10 +10,11 @@ const socketIO=require("socket.io")
 
 const io=socketIO(server)
 
+
+// Express.js를 사용하여 웹 애플리케이션을 만들고, Socket.IO를 사용하여 실시간 양방향 통신을 지원하기 위한 모듈을 임포트 
+
 app.use(express.static(path.join(__dirname,"src")))
 const PORT=process.env.PORT || 5005;
-
-//
 
 server.listen(PORT,()=>console.log("server is running "+PORT))
 let ran=lottoNum()
@@ -27,7 +28,20 @@ let MyTurn=false
 let player1=null
 let player2=null
 let array=[]
+
+
+
 io.on("connection",function connect(socket,req){
+    // Socket.IO의 "connection" 이벤트는 클라이언트가 서버에 연결되었을 때 발생하는 이벤트
+    // 클라이언트와 서버 간의 실시간 통신을 위한 여러 이벤트 핸들러 함수들이 이곳에서 정의됨
+
+
+    // "chatting": 채팅 기능과 관련된 이벤트를 처리하는 핸들러 함수
+    // "p" 및 "pp": 플레이어와 관련된 이벤트를 처리하는 핸들러 함수
+    // "card": 카드와 관련된 이벤트를 처리하는 핸들러 함수
+    // "score": 게임 점수와 관련된 이벤트를 처리하는 핸들러 함수
+    // "opencard": 카드 오픈과 관련된 이벤트를 처리하는 핸들러 함수
+    // "disconnect" 및 "init": 사용자가 연결을 끊었을 때와 초기화와 관련된 이벤트를 처리하는 핸들러 함수
     let score1=0
     let score2=0
     ran=lottoNum()//크기 30의 배열로 0~29까지의 중복없는 랜덤한 수 반환하는 함수
