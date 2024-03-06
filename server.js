@@ -58,7 +58,7 @@ io.on("connection",function connect(socket,req){
         ALL_US.forEach((element,index)=>{
             io.emit('sendname',element)
         })
-        
+        //
         socket.on('sendmessage',(data)=>{
             data={'name':data.name,'msg':data.msg,'user_id':data.user_id,'authority':false}
             io.emit('chatmessage',data)
